@@ -3,6 +3,7 @@ using Article.Repos.Contracts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Article.Repos
@@ -21,28 +22,28 @@ namespace Article.Repos
 
         public void Add(T entity)
         {
-
-            throw new NotImplementedException();
+            this._DbSet.Add(entity);
         }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            this._DbSet.Remove(entity);
         }
 
         public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return this._DbSet.ToList();
         }
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            return this._DbSet.Find(id);
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            this._DbSet.Attach(entity);
+            this._DbContext.Entry(entity).State = EntityState.Modified;
         }
     }
 }
