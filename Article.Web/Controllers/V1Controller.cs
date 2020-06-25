@@ -48,26 +48,29 @@ namespace Article.Web.Controllers
         [HttpGet("{id}")]
         public Articles GetArticlesById(int id)
         {
-            Articles Article = new Articles();
+            Articles Article = unityOfWork.ArticleRepository.GetById(id);
             return Article;
         }
 
         // POST api/<controller>
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post(Articles Article)
         {
+            unityOfWork.ArticleRepository.Add(Article);
         }
 
-        // PUT api/<controller>/5
+        // PUT api/<controller>
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(Articles Article)
         {
+            unityOfWork.ArticleRepository.Update(Article);
         }
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Articles Article)
         {
+            unityOfWork.ArticleRepository.Delete(Article);
         }
     }
 }
