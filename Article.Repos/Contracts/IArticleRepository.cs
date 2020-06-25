@@ -8,7 +8,5 @@ namespace Article.Repos.Contracts
     public interface IArticleRepository
     {
 
-        IEnumerable<Articles> GetArticles();
-        Articles GetArticle(int id);
     }
 }

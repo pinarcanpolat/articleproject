@@ -12,7 +12,6 @@ namespace Article.Repos
     {
         private readonly ArticleProjectContext _DbContext;
         private readonly DbSet<T> _DbSet;
-        
 
         public GenericRepository(ArticleProjectContext context)
         {

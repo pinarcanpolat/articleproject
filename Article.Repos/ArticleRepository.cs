@@ -12,14 +12,5 @@ namespace Article.Repos
         {
             this._DbContext = context;
         }
-        public Articles GetArticle(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Articles> GetArticles()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
